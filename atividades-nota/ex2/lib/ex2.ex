@@ -2,20 +2,27 @@ defmodule Ex2 do
   @moduledoc "Codigo para o Exercicio 2 de LPIII - Programacao Funcional"
 
   @doc "Retorna o terceiro elemento da lista l, ou nil caso l tenha menos de 3 elementos."
-  def terceiro(l), do: nil
+  def terceiro([]), do: nil
+  def terceiro([_]), do: nil
+  def terceiro([_, _]), do: nil
+  def terceiro([_, _, x | _]), do: x
 
   @doc "Obtem o tamanho da lista l"
-  def tamanho(l), do: nil
+  def tamanho([]), do: 0
+  def tamanho([h | rest]), do: tamanho(rest) + 1
 
   # Um tipo comum de processamento de lista e' calcular um resultado levando
   # em consideracao todos os elementos da lista, por exemplo a soma ou
   # produto de uma lista de numeros.
 
   @doc "Calcula a soma dos numeros da lista l."
-  def soma_lista(l), do: nil
+  def soma_lista([]), do: 0
+  def soma_lista([x | r]), do: x + soma_lista(r)
 
   @doc "Calcula o produto dos numeros da lista l."
-  def mult_lista(l), do: nil
+  def mult_lista([]), do: 1
+  def mult_lista([0 | r]), do: 0
+  def mult_lista([x | r]), do: x * mult_lista(r)
 
   # Opcional: escreva uma versao de mult_lista que retorne zero assim que
   # encontrar um elemento 0 na lista, sem precisar ir ate' o fim da lista
