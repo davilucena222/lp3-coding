@@ -175,4 +175,4 @@ defmodule Ex2 do
   [4, 8]
   """
   def posicoes_pares([]), do: []
-  #def posicoes_pares(l), do: [l + 2 | posicoes_pares(l)]
+end
