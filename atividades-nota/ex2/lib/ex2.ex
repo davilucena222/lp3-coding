@@ -174,5 +174,5 @@ defmodule Ex2 do
   iex> Ex2.posicoes_pares([2, 4, 6, 8, 10])
   [4, 8]
   """
-  def posicoes_pares([]), do: []
+  def posicoes_pares(), do: []
 end
