@@ -20,7 +20,7 @@ defmodule Aula4 do
   def filter([x | r], pred) do
     if pred.(x) do
       [x | filter(r, pred)]
-    else 
+    else
       filter(r, pred)
     end
   end
