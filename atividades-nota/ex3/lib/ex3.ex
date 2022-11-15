@@ -240,6 +240,7 @@ defmodule Ex3 do
   "tapioca, cuscuz, queijo"
   """
   def concat_strings_sep([], _), do: ""
+  def concat_strings_sep([x], _), do: x
   def concat_strings_sep([x | r], sep), do: x <> sep <> concat_strings_sep(r, sep)
 
   # --- Parte 3: Filtragem -------------------------------------------
