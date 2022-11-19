@@ -17,7 +17,9 @@ defmodule Ex4 do
   # Voce pode criar uma funcao auxiliar privada com o parametro acumulador,
   # ou fazer de outra forma.
 
-  def soma(a, b), do: nil
+  def soma(a, 0), do: a
+  def soma(0, b), do: b
+  def soma(a, b), do: soma(a - a, a + b)
 
 
   # Escreva as funcoes a seguir usando recursividade de cauda. Se precisar,
@@ -31,7 +33,9 @@ defmodule Ex4 do
   def mult(a, b), do: nil
 
   @doc "Obtem o tamanho da lista l."
-  def tamanho(l), do: nil
+  defp tamanho_acumulador([], a), do: a
+  defp tamanho_acumulador([_ | t], a), do: tamanho_acumulador(t, a + 1)
+  def tamanho(l), do: tamanho_acumulador(l, 0)
 
   @doc """
   Replica a string s, n vezes.
