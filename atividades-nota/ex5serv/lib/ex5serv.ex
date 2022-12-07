@@ -28,6 +28,31 @@ defmodule Ex5serv do
   # Opcionalmente, aceite uma mensagem para finalizar o servidor.
   #
   def loop(cafe, cha) do
-    None
+    receive do
+      {pid, :compra_cafe, x}->
+        if x <= cafe do
+          send pid, {:ok, x}
+          loop(cafe - x, cha)
+        else
+          send pid, {:semestoque, cafe}
+          loop(cafe, cha)
+        end
+      {pid, :compra_cha, x}->
+        if x <= cha do
+          send pid, {:ok, x}
+          loop(cafe, cha - x)
+        else
+          send pid, {:semestoque, cha}
+          loop(cafe, cha)
+        end
+      {pid, :quant_cafe}->
+        send pid, {:ok, cafe}
+        loop(cafe, cha)
+      {pid, :quant_cha}->
+        send pid, {:ok, cha}
+        loop(cafe, cha)
+      {pid, :desligando}
+        send pid, {:ok, "Operação de desligamento do servidor realizada com sucesso!!!"}
+    end
   end
 end

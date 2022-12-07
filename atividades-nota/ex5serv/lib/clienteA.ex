@@ -44,4 +44,12 @@ defmodule ClienteA do
       { :ok, n } -> n
     end
   end
+
+  def desligando(server) do
+    IO.puts "Desligando o servidor atual!!!"
+    send server, {self(), :desligando}
+    receive do
+      {:ok, valor} -> IO.puts valor
+    end
+  end
 end
