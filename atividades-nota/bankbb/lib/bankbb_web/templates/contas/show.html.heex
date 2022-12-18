@@ -1,0 +1,23 @@
+<h1>Show Contas</h1>
+
+<ul>
+
+  <li>
+    <strong>Numero:</strong>
+    <%= @contas.numero %>
+  </li>
+
+  <li>
+    <strong>Titular:</strong>
+    <%= @contas.titular %>
+  </li>
+
+  <li>
+    <strong>Saldo:</strong>
+    <%= @contas.saldo %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.contas_path(@conn, :edit, @contas) %></span> |
+<span><%= link "Back", to: Routes.contas_path(@conn, :index) %></span>
