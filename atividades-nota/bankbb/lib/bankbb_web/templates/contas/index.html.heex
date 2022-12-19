@@ -1,9 +1,9 @@
-<h1>Listing Contas</h1>
+<h1>Listagem de Contas</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Numero</th>
+      <th>Número</th>
       <th>Titular</th>
       <th>Saldo</th>
 
@@ -18,13 +18,14 @@
       <td><%= contas.saldo %></td>
 
       <td>
-        <span><%= link "Show", to: Routes.contas_path(@conn, :show, contas) %></span>
-        <span><%= link "Edit", to: Routes.contas_path(@conn, :edit, contas) %></span>
-        <span><%= link "Delete", to: Routes.contas_path(@conn, :delete, contas), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        <span><%= link "Mostrar", to: Routes.contas_path(@conn, :show, contas) %></span>
+        <span><%= link "Atualizar", to: Routes.contas_path(@conn, :edit, contas) %></span>
+        <span><%= link "Deletar", to: Routes.contas_path(@conn, :delete, contas), method: :delete, data: [confirm: "Você tem certeza que deseja deletar?"] %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Contas", to: Routes.contas_path(@conn, :new) %></span>
+<span><%= link "Nova Conta", to: Routes.contas_path(@conn, :new) %></span>
+<span><%= link "Página Inicial", to: "http://localhost:4902/" %></span>

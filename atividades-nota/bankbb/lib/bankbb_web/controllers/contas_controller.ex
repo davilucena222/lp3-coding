@@ -18,7 +18,7 @@ defmodule BankbbWeb.ContasController do
     case Bancos.create_contas(contas_params) do
       {:ok, contas} ->
         conn
-        |> put_flash(:info, "Contas created successfully.")
+        |> put_flash(:info, "Conta criada com sucesso!")
         |> redirect(to: Routes.contas_path(conn, :show, contas))
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -43,7 +43,7 @@ defmodule BankbbWeb.ContasController do
     case Bancos.update_contas(contas, contas_params) do
       {:ok, contas} ->
         conn
-        |> put_flash(:info, "Contas updated successfully.")
+        |> put_flash(:info, "Conta atualizada com sucesso!")
         |> redirect(to: Routes.contas_path(conn, :show, contas))
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -56,7 +56,7 @@ defmodule BankbbWeb.ContasController do
     {:ok, _contas} = Bancos.delete_contas(contas)
 
     conn
-    |> put_flash(:info, "Contas deleted successfully.")
+    |> put_flash(:info, "Conta deletada com sucesso!")
     |> redirect(to: Routes.contas_path(conn, :index))
   end
 end

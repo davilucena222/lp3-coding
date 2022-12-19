@@ -29,12 +29,12 @@ defmodule BankbbWeb.ContasControllerTest do
       assert redirected_to(conn) == Routes.contas_path(conn, :show, id)
 
       conn = get(conn, Routes.contas_path(conn, :show, id))
-      assert html_response(conn, 200) =~ "Show Contas"
+      assert html_response(conn, 200) =~ "Informações da Conta"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
       conn = post(conn, Routes.contas_path(conn, :create), contas: @invalid_attrs)
-      assert html_response(conn, 200) =~ "New Contas"
+      assert html_response(conn, 200) =~ "Nova Conta"
     end
   end
 
@@ -43,7 +43,7 @@ defmodule BankbbWeb.ContasControllerTest do
 
     test "renders form for editing chosen contas", %{conn: conn, contas: contas} do
       conn = get(conn, Routes.contas_path(conn, :edit, contas))
-      assert html_response(conn, 200) =~ "Edit Contas"
+      assert html_response(conn, 200) =~ "Editar Conta"
     end
   end
 
